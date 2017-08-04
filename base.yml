@@ -1,0 +1,5 @@
+---
+  - name: base-playbook
+    hosts: webservers
+    roles:
+      - { role: base_additions, tags: base_additions }

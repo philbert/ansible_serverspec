@@ -1,0 +1,2 @@
+[webservers]
+default ansible_ssh_host=10.10.10.20 ansible_ssh_port=22 ansible_user=vagrant

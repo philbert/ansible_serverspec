@@ -3,3 +3,4 @@
     hosts: webservers
     roles:
       - { role: base_additions, tags: base_additions }
+    become: true

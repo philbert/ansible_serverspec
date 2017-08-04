@@ -1,3 +1,5 @@
 ---
-  - debug: 
-      msg: "just a placeholder"
+  - name: update and upgrade base packages
+    apt: 
+      upgrade: dist
+      update_cache: yes

@@ -1,5 +1,12 @@
 ---
-  - name: install the webapp
+  - name: clone webapp
     git:
       repo: https://github.com/philbert/sample_flask_app.git
       dest: /webapp/
+
+  - name: setup virtualenv
+    pip:
+      requirements: /webapp/requirements.txt
+      virtualenv_command: virtualenv-3.6.2
+
+        

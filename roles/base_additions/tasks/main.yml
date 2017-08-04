@@ -9,5 +9,11 @@
       name: "{{ item }}"
       state: latest
     with_items:
+      - python-pip
       - ntpdate
       - git
+
+  - name: install virtualenv
+    pip:
+      name: virtualenv
+

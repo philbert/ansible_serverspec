@@ -3,3 +3,11 @@
     apt: 
       upgrade: dist
       update_cache: yes
+
+  - name: install base packages
+    package:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - ntpdate
+      - git

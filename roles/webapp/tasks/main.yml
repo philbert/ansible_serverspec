@@ -1,0 +1,5 @@
+---
+  - name: install the webapp
+    git:
+      repo: https://github.com/philbert/sample_flask_app.git
+      dest: /webapp/

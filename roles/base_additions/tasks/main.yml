@@ -9,7 +9,7 @@
       name: "{{ item }}"
       state: latest
     with_items:
-      - python-pip
+      - python3-pip
       - ntpdate
       - git
 

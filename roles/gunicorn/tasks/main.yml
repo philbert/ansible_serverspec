@@ -30,3 +30,4 @@
       daemon_reload: yes
       name: gunicorn.service
       state: restarted
+    when: gunicorn.changed

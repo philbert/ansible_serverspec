@@ -10,5 +10,10 @@
       home: "{{ webapp_dir }}"
       createhome: no
 
-      #  - name: add permissions for webapp_user
-    
+  - name: create the webapp root
+    file: 
+      path: "{{ webapp_root }}"
+      owner: "{{ webapp_user }}"
+      group: "{{ webapp_user }}" 
+      mode: 0755
+      state: directory

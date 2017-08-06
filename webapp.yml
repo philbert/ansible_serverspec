@@ -3,4 +3,5 @@
     hosts: webservers
     roles:
       - { role: webapp, tags: webapp }
-      - { role: gunicorn, tags: gunicorn }
+    become: true
+    become_user: "{{ webapp_user }}"

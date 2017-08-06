@@ -1,0 +1,22 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+Requires=nginx.service
+Before=nginx.service
+
+[Service]
+PIDFile=/run/gunicorn/pid
+User=centos
+Group=centos
+WorkingDirectory={{ webapp_dir }}
+ExecStart={{ virtualenv_dir }}/bin/gunicorn                 \
+        --pid /run/gunicorn/pid                             \
+        --bind=127.0.0.1:5000                               \
+        --error-logfile=/var/log/gunicorn/gunicorn.error    \
+        app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

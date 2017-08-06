@@ -1,0 +1,25 @@
+---
+  - name: create log and pid directories for gunicorn
+    file: 
+      path: "{{ item }}"
+      owner: "{{ kmk_user }}"
+      group: "{{ kmk_user }}"
+      mode: 755
+      state: directory
+    with_items:
+      - /var/log/gunicorn
+      - /run/gunicorn
+
+  - name: add gunicorn systemd service
+    template: src=gunicorn.service dest=/usr/lib/systemd/system/gunicorn/gunicorn.service
+
+  - name: add gunicorn systemd socket
+    template: src=gunicorn.socket dest=/usr/lib/systemd/system/gunicorn/gunicorn.socket
+
+  - name: enable gunicorn service and socket
+    service: name={{ item }} enabled=yes state=started
+    with_items:
+      - gunicorn.service
+
+  - name: just a quick test
+    shell: curl http://10.10.10.20:80

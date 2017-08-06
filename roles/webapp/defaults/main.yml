@@ -1,3 +1,1 @@
 ---
-  webapp_root: "/webapps"
-  webapp_dir: "{{ webapp_root}}/kmk"

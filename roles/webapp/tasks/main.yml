@@ -2,11 +2,11 @@
   - name: clone webapp
     git:
       repo: https://github.com/philbert/sample_flask_app.git
-      dest: /webapp/
+      dest: "{{ webapp_dir }}"
 
-  - name: setup virtualenv
+  - name: setup virtualenv for webapp
     pip:
-      requirements: /webapp/requirements.txt
-      virtualenv_command: virtualenv-3.6.2
+      requirements: "{{ webapp_dir }}/requirements.txt"
+      virtualenv: "{{ webapp_root }}/virtenv"
 
         

@@ -1,0 +1,6 @@
+---
+  - name: webapp-playbook
+    hosts: webservers
+    roles:
+      - { role: webapp, tags: webapp }
+      - { role: gunicorn, tags: gunicorn }

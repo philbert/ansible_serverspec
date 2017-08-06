@@ -1,0 +1,14 @@
+---
+  - name: Create webapp group
+    group: name="{{ webapp_user }}" 
+
+  - name: Create webapp user
+    user: 
+      name: "{{ webapp_user }}" 
+      shell: /bin/bash
+      group: "{{ webapp_user }}"
+      home: "{{ webapp_dir }}"
+      createhome: no
+
+      #  - name: add permissions for webapp_user
+    

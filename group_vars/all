@@ -1,4 +1,5 @@
 ---
+  webapp_user: "webapp"
   webapp_root: "/webapps"
-  webapp_dir: "{{ webapp_root }}/kmk"
+  webapp_dir: "{{ webapp_root }}/webapp"
   virtualenv_dir: "{{ webapp_root }}/virtenv"

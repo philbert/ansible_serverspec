@@ -3,6 +3,5 @@
     hosts: webservers
     roles:
       - { role: base_additions, tags: base_additions }
-      - { role: webapp, tags: webapp }
-      - { role: gunicorn, tags: gunicorn }
+      - { role: users, tags: users }
     become: true

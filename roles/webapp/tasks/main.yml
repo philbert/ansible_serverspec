@@ -1,4 +1,13 @@
 ---
+  - name: create the webapp root
+    file: 
+      path: "{{ webapp_root }}"
+      owner: "{{ webapp_user }}"
+      group: "{{ webapp_user }}" 
+      mode: 0755
+      state: directory
+    become: true
+
   - name: clone webapp
     git:
       repo: https://github.com/philbert/sample_flask_app.git
@@ -7,6 +16,11 @@
   - name: setup virtualenv for webapp
     pip:
       requirements: "{{ webapp_dir }}/requirements.txt"
+      virtualenv: "{{ webapp_root }}/virtenv"
+
+  - name: install gunicorn
+    pip:
+      name: gunicorn
       virtualenv: "{{ webapp_root }}/virtenv"
 
         

@@ -20,4 +20,8 @@
     with_items:
       - virtualenv
 
+  - name: set timezone to UTC
+    timezone:
+      name: Etc/UTC
+
 

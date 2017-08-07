@@ -27,9 +27,7 @@
     service: name={{ item }} enabled=yes state=started
     with_items:
       - "gunicorn.service"
+      - "gunicorn.socket"
     become: true
     become_user: root
-
-  - name: just a quick test
-    shell: curl http://127.0.0.1:5000
         

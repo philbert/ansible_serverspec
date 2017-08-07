@@ -1,5 +1,6 @@
 [Unit]
 Description=gunicorn daemon
+Requires=gunicorn.socket
 After=network.target
 
 [Service]
@@ -8,8 +9,9 @@ User={{ webapp_user }}
 Group={{ webapp_user }}
 WorkingDirectory={{ webapp_dir }}
 ExecStart={{ virtualenv_dir }}/bin/gunicorn                 \
+        --workers 3                                         \
         --pid /run/gunicorn/pid                             \
-        --bind=127.0.0.1:5000                               \
+        --bind unix:/run/gunicorn/socket                    \
         app:app
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID

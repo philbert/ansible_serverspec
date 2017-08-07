@@ -12,6 +12,7 @@ ExecStart={{ virtualenv_dir }}/bin/gunicorn                 \
         --workers 3                                         \
         --pid /run/gunicorn/pid                             \
         --bind unix:/run/gunicorn/socket                    \
+        --log-syslog                                        \
         app:app
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID

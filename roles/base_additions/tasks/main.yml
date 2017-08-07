@@ -12,6 +12,7 @@
       - python3-pip
       - ntpdate
       - git
+      - nginx 
 
   - name: install virtualenv
     pip:

@@ -5,4 +5,5 @@
       - { role: base_additions, tags: base_additions }
       - { role: users, tags: users }
       - { role: gunicorn, tags: gunicorn }
+      - { role: nginx, tags: nginx }
     become: true

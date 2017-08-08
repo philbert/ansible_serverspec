@@ -19,3 +19,6 @@ gem "specinfra"
 # ssh and networking for ansible
 gem "net-scp"
 gem "net-ssh"
+
+# generating junit reports for jenkins from rspec
+gem "rspec_junit_formatter"

@@ -46,6 +46,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    rspec_junit_formatter (0.3.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubyntlm (0.6.2)
     serverspec (2.39.2)
       multi_json
@@ -82,6 +84,7 @@ DEPENDENCIES
   rspec-its
   rspec-mocks
   rspec-support
+  rspec_junit_formatter
   serverspec
   specinfra
 

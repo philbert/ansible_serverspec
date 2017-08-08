@@ -32,6 +32,9 @@ namespace :serverspec do
         ENV['TARGET_PASSWORD'] = host["pass"]
         ENV['TARGET_CONNECTION'] = host["connection"]
 
+        # If you want to produce junit formatted xml reports for jenkins, uncomment this line
+        #t.rspec_opts = '--no-drb -r rspec_junit_formatter --format RspecJunitFormatter \
+        #                -o spec/reports/' + "#{property["name"]}" + '_results.xml'
         roles = property["roles"]
         for role in property["roles"]
           for rolepath in cfg.roles_path

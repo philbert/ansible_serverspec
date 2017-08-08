@@ -28,5 +28,17 @@ describe "INFO: Testing role gunicorn/tasks/main.yml" do
             its(:content) { should contain 'd /var/run/gunicorn 0755 webapp webapp -' }
         end
     end
+
+    describe "INFO: checking gunicorn.service" do
+        describe file('/usr/lib/systemd/system/gunicorn.service') do
+            it { should be_file }
+        end
+    end
+
+    describe "INFO: checking gunicorn.socket" do
+        describe file('/usr/lib/systemd/system/gunicorn.socket') do
+            it { should be_file }
+        end
+    end
 end
 

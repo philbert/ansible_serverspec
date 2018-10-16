@@ -4,3 +4,4 @@
   webapp_dir: "{{ webapp_root }}/webapp"
   virtualenv_dir: "{{ webapp_root }}/virtenv"
   gunicorn_dir: /usr/lib/systemd/system
+  gunicorn_run: /run/gunicorn

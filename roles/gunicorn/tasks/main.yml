@@ -10,13 +10,18 @@
       - /var/log/gunicorn
       - /run/gunicorn
 
-  - name: create systemd gunicorn directory
-    file: 
+  - name: create gunicorn_dir for systemd
+    file:
       path: "{{ gunicorn_dir }}"
       owner: root
       group: root
-      mode: 0755
+      mode: 755
       state: directory
+
+  - name: ensure /run/gunicorn is owned by webapp_user on restart
+    lineinfile: 
+      path: /usr/lib/tmpfiles.d/var.conf
+      line: "d /var/run/gunicorn 0755 {{ webapp_user }} {{ webapp_user }}"
 
   - name: add gunicorn systemd service
     template: src=gunicorn.service dest="{{ gunicorn_dir }}/gunicorn.service"

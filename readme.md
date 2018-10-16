@@ -7,6 +7,7 @@
   - ruby 2.4.1
   - bundler 1.15.3
 
+
 ## The webapp details:
   - `vagrant up` should bring up the app on http port 80 at `http://10.10.10.20`
   - Ansible is used as the provisioner (version 2.3.1.0) and the following property must be set in .ansible.cfg: 

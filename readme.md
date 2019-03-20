@@ -1,12 +1,12 @@
 # Testing your ansible playooks with serverspec
 
 ## Dependencies (last tested working versions):
-  - vagrant 2.0.3
+  - vagrant 2.2.4
+  - virtualbox 6.0.4
   - ansible 2.6.3
   - python 3.7
   - ruby 2.4.1
   - bundler 1.15.3
-
 
 ## The webapp details:
   - `vagrant up` should bring up the app on http port 80 at `http://10.10.10.20`
@@ -23,6 +23,11 @@
   - You can see the available serverspec tasks for each role by running `rake -T`
   - The code uses a gem called [ansible_spec](https://github.com/volanja/ansible_spec) to connect the serverspec test to the ansble roles that get executed by rspec
   - If you want to produce junit formatted xml reports from the tests for CI like jenkins you can [enable this line](https://github.com/philbert/ansible_serverspec/blob/master/Rakefile#L36)
+
+## Debugging errors:
+  - Ensure that you do not have any connection errors to the virtual machine:
+    1. Try ansible without vagrant ```ansible webservers -i inventory/development -m ping```
+    2. Try plain ssh ```ssh -i .vagrant/machines/default/virtualbox/private_key vagrant@10.10.10.20```
 
 ## Here are my test results:
 

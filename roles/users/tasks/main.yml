@@ -1,19 +1,11 @@
 ---
-  - name: Create webapp group
+  - name: Create {{ webapp_user }} group
     group: name="{{ webapp_user }}" 
 
-  - name: Create webapp user
+  - name: Create {{ webapp_user }} user
     user: 
       name: "{{ webapp_user }}" 
       shell: /bin/bash
       group: "{{ webapp_user }}"
-      home: "{{ webapp_dir }}"
-      createhome: no
-
-  - name: create the webapp root
-    file: 
-      path: "{{ webapp_root }}"
-      owner: "{{ webapp_user }}"
-      group: "{{ webapp_user }}" 
-      mode: 0755
-      state: directory
+      home: "{{ webapp_root }}"
+      create_home: yes

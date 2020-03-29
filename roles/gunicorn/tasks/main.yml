@@ -15,7 +15,7 @@
       mode: 0755
       state: directory
 
-  - name: ensure /run/gunicorn is owned by webapp_user on restart
+  - name: ensure /run/gunicorn is owned by {{ webapp_user }} on restart
     lineinfile: 
       path: /usr/lib/tmpfiles.d/var.conf
       line: "d /var/run/gunicorn 0755 {{ webapp_user }} {{ webapp_user }} -"
